@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}{{ raridade.nome }} | PokéColeção{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <a href="{% url 'cartaspokemon:inicio' %}" class="text-decoration-none">&larr; Voltar às raridades</a>
+        <h1 class="display-6 fw-bold mt-2">{{ raridade.nome }}</h1>
+        <p class="text-secondary mb-0">{{ raridade.descricao }}</p>
+    </div>
+    <form class="d-flex" method="get">
+        <input class="form-control me-2" type="search" name="busca" value="{{ busca }}" placeholder="Buscar por nome">
+        <button class="btn btn-danger" type="submit">Buscar</button>
+    </form>
+</div>
+{% if cartas %}
+<div class="row g-4">
+{% for carta in cartas %}
+<div class="col-sm-6 col-lg-4">
+    <article class="card h-100 shadow-sm card-carta">
+        {% if carta.imagem %}
+        <img src="{{ carta.imagem.url }}" class="card-img-top imagem-carta" alt="Imagem da carta {{ carta.nome }}">
+        {% else %}
+        <div class="imagem-carta sem-imagem">Sem imagem</div>
+        {% endif %}
+        <div class="card-body">
+            <h2 class="h5 card-title">{{ carta.nome }}</h2>
+            <p class="card-text text-secondary mb-1">Estágio: {{ carta.get_estagioEvolucao_display }}</p>
+            <p class="card-text text-secondary mb-3">Pontos de vida: {{ carta.pontoVida }} | Tipo: {{ carta.tipoPokemon.nome }}</p>
+            <p class="valor mb-0">Valor estimado: R$ {{ carta.valorEstimado|floatformat:2 }}</p>
+        </div>
+    </article>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="alert alert-warning">Nenhuma carta encontrada para essa busca.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Raridades | PokéColeção{% endblock %}
+{% block content %}
+<div class="mb-4">
+    <h1 class="display-6 fw-bold">Minha coleção</h1>
+    <p class="text-secondary">Escolha uma raridade para ver suas cartas Pokémon.</p>
+</div>
+{% if raridades %}
+<div class="table-responsive card shadow-sm">
+    <table class="table table-hover align-middle mb-0">
+        <thead class="table-dark"><tr><th>Raridade</th><th>Descrição</th><th class="text-center">Total de cartas</th></tr></thead>
+        <tbody>
+        {% for raridade in raridades %}
+        <tr>
+            <td><a class="fw-semibold text-danger" href="{% url 'cartaspokemon:cartas_por_raridade' raridade.id %}">{{ raridade.nome }}</a></td>
+            <td>{{ raridade.descricao }}</td>
+            <td class="text-center"><span class="badge text-bg-danger">{{ raridade.total_cartas }}</span></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">Nenhuma carta cadastrada ainda. Acesse a administração para começar.</div>
+{% endif %}
+{% endblock %}

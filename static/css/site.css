@@ -1,0 +1,6 @@
+body { background: #f6f7fb; }
+.card-carta { border: 0; overflow: hidden; transition: transform .2s ease; }
+.card-carta:hover { transform: translateY(-4px); }
+.imagem-carta { height: 280px; object-fit: contain; background: #eef1f6; }
+.sem-imagem { display: grid; place-items: center; color: #6c757d; }
+.valor { color: #c1121f; font-size: 1.1rem; font-weight: 700; }

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="640" viewBox="0 0 480 640">
+  <rect width="480" height="640" rx="24" fill="#e63946"/>
+  <rect x="24" y="24" width="432" height="592" rx="18" fill="#fff"/>
+  <circle cx="240" cy="280" r="100" fill="#ffcb05"/>
+  <circle cx="210" cy="250" r="16" fill="#222"/>
+  <circle cx="270" cy="250" r="16" fill="#222"/>
+  <path d="M185 315 Q240 360 295 315" fill="none" stroke="#222" stroke-width="12"/>
+  <text x="240" y="500" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold" fill="#222">POKÉMON</text>
+</svg>
